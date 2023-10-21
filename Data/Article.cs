@@ -8,10 +8,9 @@ namespace Newsletter.Data
 {
     public class Article
     {
-        public int id { get; set; }
-        public required string title { get; set; }
-        public required string content { get; set; }
-        public Blob image { get; set; }
+        public int ArticleId { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
 
     }
 }

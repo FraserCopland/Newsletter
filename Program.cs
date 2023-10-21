@@ -10,8 +10,6 @@ builder.Services.AddDbContext<NewsletterDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<UserData>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<NewsletterDbContext>();
 
 builder.Services.AddControllersWithViews();
 

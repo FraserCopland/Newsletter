@@ -1,7 +1,6 @@
 C:\Users\frase\Documents\4602\Newsletter\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\frase\Documents\4602\Newsletter\bin\Debug\net7.0\appsettings.json
 C:\Users\frase\Documents\4602\Newsletter\bin\Debug\net7.0\Newsletter.staticwebassets.runtime.json
-C:\Users\frase\Documents\4602\Newsletter\bin\Debug\net7.0\app.db
 C:\Users\frase\Documents\4602\Newsletter\bin\Debug\net7.0\Newsletter.exe
 C:\Users\frase\Documents\4602\Newsletter\bin\Debug\net7.0\Newsletter.deps.json
 C:\Users\frase\Documents\4602\Newsletter\bin\Debug\net7.0\Newsletter.runtimeconfig.json

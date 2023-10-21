@@ -8,8 +8,8 @@ namespace Newsletter.Data
 {
     public class UserData
     {
-        public int id { get; set; }
-        public required string email { get; set; }
-        public required string password { get; set; }
+        public int UserId { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
