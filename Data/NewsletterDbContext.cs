@@ -18,7 +18,7 @@ namespace Newsletter.Data
                 entity.Property(e => e.SequentialNumber).IsRequired();
                 entity.Property(e => e.NewsTitle).IsRequired();
                 entity.Property(e => e.Date).IsRequired();
-                entity.HasMany(e => e.Articles).WithOne().IsRequired();
+                entity.HasMany(e => e.Articles).WithOne(e => e.Newsletter).HasForeignKey(e => e.NewsletterId).IsRequired();
                 entity.Property(e => e.IsActive).IsRequired();
 
                 entity.HasData(new Newsletter {
@@ -26,58 +26,21 @@ namespace Newsletter.Data
                     NewsTitle = "First Newsletter",
                     SequentialNumber = 1,
                     Date = DateTime.Now,
-                    Articles = new Article[] {
-                        new Article {
-                            ArticleId = 1,
-                            Title = "First Article",
-                            Content = "This is the first article"
-                        },
-                        new Article {
-                            ArticleId = 2,
-                            Title = "Second Article",
-                            Content = "This is the second article"
-                        }
-                    },
+                    
                     IsActive = true
                 });
-
                 entity.HasData(new Newsletter {
                     NewsletterId = 2,
                     NewsTitle = "Second Newsletter",
                     SequentialNumber = 2,
                     Date = DateTime.Now,
-                    Articles = new Article[] {
-                        new Article {
-                            ArticleId = 3,
-                            Title = "First Article",
-                            Content = "This is the first article"
-                        },
-                        new Article {
-                            ArticleId = 4,
-                            Title = "Second Article",
-                            Content = "This is the second article"
-                        }
-                    },
                     IsActive = true
                 });
-
                 entity.HasData(new Newsletter {
                     NewsletterId = 3,
                     NewsTitle = "Third Newsletter",
                     SequentialNumber = 3,
                     Date = DateTime.Now,
-                    Articles = new Article[] {
-                        new Article {
-                            ArticleId = 5,
-                            Title = "First Article",
-                            Content = "This is the first article"
-                        },
-                        new Article {
-                            ArticleId = 6,
-                            Title = "Second Article",
-                            Content = "This is the second article"
-                        }
-                    },
                     IsActive = false
                 });
             });
@@ -86,6 +49,44 @@ namespace Newsletter.Data
                 entity.HasKey(e => e.ArticleId);
                 entity.Property(e => e.Title).IsRequired();
                 entity.Property(e => e.Content).IsRequired();
+                entity.Property(e => e.NewsletterId).IsRequired();
+                entity.HasOne(e => e.Newsletter).WithMany(e => e.Articles).HasForeignKey(e => e.NewsletterId).IsRequired();
+                entity.HasData(new Article {
+                    ArticleId = 1,
+                    Title = "First Article",
+                    Content = "This is the first article",
+                    NewsletterId = 1
+                });
+                entity.HasData(new Article {
+                    ArticleId = 2,
+                    Title = "Second Article",
+                    Content = "This is the second article",
+                    NewsletterId = 1
+                });
+                entity.HasData(new Article {
+                    ArticleId = 3,
+                    Title = "Third Article",
+                    Content = "This is the third article",
+                    NewsletterId = 2
+                });
+                entity.HasData(new Article {
+                    ArticleId = 4,
+                    Title = "Fourth Article",
+                    Content = "This is the fourth article",
+                    NewsletterId = 2
+                });
+                entity.HasData(new Article {
+                    ArticleId = 5,
+                    Title = "Fifth Article",
+                    Content = "This is the fifth article",
+                    NewsletterId = 3
+                });
+                entity.HasData(new Article {
+                    ArticleId = 6,
+                    Title = "Sixth Article",
+                    Content = "This is the sixth article",
+                    NewsletterId = 3
+                });
             });
 
             builder.Entity<UserData>(entity => {
